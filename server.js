@@ -4,7 +4,7 @@ const express = require('express')
 const cors = require("cors")
 const querystring = require('querystring')
 const app = express()
-const port = 4000
+const port = 80
 
 const USERS = [
     {
