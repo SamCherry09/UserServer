@@ -41,6 +41,18 @@ var bodyParser = require('body-parser')//add this
 
 app.use(bodyParser())//add this before any route or before using req.body
 app.use(express.static("./dist/my-app"));
+app.get('/user', (req, res) => {
+    console.log("UserMethode")
+    for (const user of USERS) {//For-of-loop over this.users
+         
+        if (req.query.id == user.id) {
+            res.send({password: "*******",...user});
+            return
+        }
+        
+    }
+    res.send({"email": "Failed to load","password": "Failed to load","name":"Failed to load","famName":"Failed to load", "id":"Failed to load"});
+})
 app.get('/*', function(req, res) {
     res.sendFile('index.html', {root: 'dist/my-app/'});
     console.log("HelferchenMethode")
@@ -60,18 +72,7 @@ app.post('/LogIn/', (req, res) => {
     }
     res.send({"id":""});
 })
-app.get('/user', (req, res) => {
-    console.log("UserMethode")
-    for (const user of USERS) {//For-of-loop over this.users
-         
-        if (req.query.id == user.id) {
-            res.send({password: "*******",...user});
-            return
-        }
-        
-    }
-    res.send({"email": "Failed to load","password": "Failed to load","name":"Failed to load","famName":"Failed to load", "id":"Failed to load"});
-})
+
 
 
 let port = process.env.PORT;
