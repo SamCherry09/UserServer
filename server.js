@@ -4,7 +4,7 @@ const express = require('express')
 const cors = require("cors")
 const querystring = require('querystring')
 const app = express()
-const port = 80
+
 
 const USERS = [
     {
@@ -68,6 +68,11 @@ app.get('/user', (req, res) => {
     res.send({"email": "Failed to load","password": "Failed to load","name":"Failed to load","famName":"Failed to load", "id":"Failed to load"});
 })
 
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
