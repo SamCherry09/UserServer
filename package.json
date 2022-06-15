@@ -1,0 +1,23 @@
+{
+  "name": "userserver",
+  "version": "1.0.0",
+  "description": "Stores User Information",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamCherry09/UserServer.git"
+  },
+  "author": "SamCherry09",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamCherry09/UserServer/issues"
+  },
+  "homepage": "https://github.com/SamCherry09/UserServer#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  }
+}
