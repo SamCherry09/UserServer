@@ -41,6 +41,9 @@ var bodyParser = require('body-parser')//add this
 
 app.use(bodyParser())//add this before any route or before using req.body
 app.use(express.static("./dist/my-app"));
+app.get('/*', function(req, res) {
+    res.sendFile('index.html', {root: 'dist/my-app/'});
+  });
 // var corsOptions ={
 //     origin: "*"
 // }
