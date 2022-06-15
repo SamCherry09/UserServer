@@ -4,7 +4,9 @@
   "description": "Stores User Information",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku:push": "git push heroku main",
+    "start":"node server.js"
   },
   "repository": {
     "type": "git",
