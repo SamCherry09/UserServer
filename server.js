@@ -82,6 +82,7 @@ app.post('user', (req, res) => {
 })
 app.put('user', (req, res) => {
     USERS.push({...req.body,id: id+"38247"+id*2+"633"});
+    console.log(id+"38247"+id*2+"633");
     id ++;
 })
 
