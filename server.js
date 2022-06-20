@@ -89,7 +89,7 @@ app.put('/user', (req, res) => {
 app.delete('/user', (req, res) => {
     for (const user of USERS) {//For-of-loop over this.users
         if (req.query.id == user.id) {
-            user = null;
+            USERS.splice(USERS.indexOf(user),1)
             return
         }
     }
