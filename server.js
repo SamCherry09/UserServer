@@ -5,7 +5,6 @@ const cors = require("cors")
 const querystring = require('querystring')
 const app = express()
 
-
 const USERS = [
     {
         "email": "ja@gmail.com" ,
@@ -36,7 +35,7 @@ const USERS = [
         "id": "876542"
     }
 ]
-
+let id = 5;
 var bodyParser = require('body-parser')//add this
 
 app.use(bodyParser())//add this before any route or before using req.body
@@ -46,7 +45,7 @@ app.get('/user', (req, res) => {
     for (const user of USERS) {//For-of-loop over this.users
          
         if (req.query.id == user.id) {
-            res.send({password: "*******",...user});
+            res.send({...user,password: "*******"});
             return
         }
         
@@ -57,9 +56,8 @@ app.get('/*', function(req, res) {
     res.sendFile('index.html', {root: 'dist/my-app/'});
     console.log("HelferchenMethode")
 });
-// var corsOptions ={
-//     origin: "*"
-// }
+
+
 app.use(cors())
 app.post('/LogIn/', (req, res) => {
     for (const user of USERS) {//For-of-loop over this.users
@@ -71,6 +69,29 @@ app.post('/LogIn/', (req, res) => {
         
     }
     res.send({"id":""});
+})
+app.post('user', (req, res) => {
+    for (const user of USERS) {//For-of-loop over this.users
+         
+        if (req.body.id == user.id) {
+            user = req.body;
+            return
+        }
+        
+    }
+})
+app.put('user', (req, res) => {
+    USERS.push({...req.body,id: id+"38247"+id*2+"633"});
+    id ++;
+})
+
+app.delete('user', (req, res) => {
+    for (const user of USERS) {//For-of-loop over this.users
+        if (req.query.id == user.id) {
+            user = null;
+            return
+        }
+    }
 })
 
 
