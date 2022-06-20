@@ -70,7 +70,7 @@ app.post('/LogIn/', (req, res) => {
     }
     res.send({"id":""});
 })
-app.post('user', (req, res) => {
+app.post('/user', (req, res) => {
     for (const user of USERS) {//For-of-loop over this.users
          
         if (req.body.id == user.id) {
@@ -80,13 +80,13 @@ app.post('user', (req, res) => {
         
     }
 })
-app.put('user', (req, res) => {
+app.put('/user', (req, res) => {
     USERS.push({...req.body,id: id+"38247"+id*2+"633"});
     console.log(id+"38247"+id*2+"633");
     id ++;
 })
 
-app.delete('user', (req, res) => {
+app.delete('/user', (req, res) => {
     for (const user of USERS) {//For-of-loop over this.users
         if (req.query.id == user.id) {
             user = null;
