@@ -75,7 +75,7 @@ app.post('/user', (req, res) => {
          
         if (req.body.id == user.id) {
             USERS[USERS.indexOf(user)] = req.body;
-            res.send("done");
+            res.send(true);
         }
         
     }
@@ -84,14 +84,14 @@ app.put('/user', (req, res) => {
     USERS.push({...req.body,id: id+"38247"+id*2+"633"});
     console.log(id+"38247"+id*2+"633");
     id ++;
-    res.send("done");
+    res.send(true);
 })
 
 app.delete('/user', (req, res) => {
     for (const user of USERS) {//For-of-loop over this.users
         if (req.query.id == user.id) {
             USERS.splice(USERS.indexOf(user),1)
-            res.send("done");
+            res.send(true);
         }
     }
 })
