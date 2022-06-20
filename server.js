@@ -74,7 +74,7 @@ app.post('/user', (req, res) => {
     for (const user of USERS) {//For-of-loop over this.users
          
         if (req.body.id == user.id) {
-            user = req.body;
+            USERS[USERS.indexOf(user)] = req.body;
             return
         }
         
@@ -84,6 +84,7 @@ app.put('/user', (req, res) => {
     USERS.push({...req.body,id: id+"38247"+id*2+"633"});
     console.log(id+"38247"+id*2+"633");
     id ++;
+    return
 })
 
 app.delete('/user', (req, res) => {
